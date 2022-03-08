@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bei.mapper.UserMapper">
+
+    <!--    <select id="deleteUsers" parameterType="List">-->
+    <!--        delete from consumer where id in();-->
+    <!--    </select>-->
+
+    <select id="getUserNum" resultType="int">
+        select COUNT(*) from springboot.consumer;
+    </select>
+
+    <select id="getUsers" resultType="com.bei.pojo.User" parameterType="int">
+        select * from consumer where id = #{id};
+    </select>
+
+    <select id="getManNum" resultType="int">
+        select COUNT(*) from springboot.consumer where sex = 1;
+    </select>
+
+    <select id="isExists" parameterType="String" resultType="boolean">
+        select COUNT(*) from springboot.consumer where username = #{username}
+    </select>
+
+    <select id="getUserByName" parameterType="String" resultType="com.bei.pojo.User">
+        select * from consumer where username = #{username};
+    </select>
+
+    <!--根据ids批量查询用户-->
+<!--    <select id=""-->
+</mapper>
